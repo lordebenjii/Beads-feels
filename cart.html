@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Cart – Beads & Feels Kenya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary: #f07218;
+      --accent: #852527;
+      --highlight: #e9a001;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[var(--accent)] text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Beads & Feels Kenya</h1>
+      <nav>
+        <a href="index.html" class="mx-2 hover:text-[var(--highlight)]">Home</a>
+        <a href="custom-orders.html" class="mx-2 hover:text-[var(--highlight)]">Custom Orders</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Title -->
+  <section class="bg-[var(--primary)] text-white py-8 text-center">
+    <h2 class="text-3xl font-bold">Your Shopping Cart</h2>
+  </section>
+
+  <!-- Cart Section -->
+  <main class="max-w-4xl mx-auto p-6">
+    <div id="cart-items" class="space-y-4"></div>
+
+    <div class="mt-6 text-xl font-bold">
+      Total: Ksh <span id="cart-total">0</span>
+    </div>
+
+    <!-- Payment Section -->
+ <!-- Payment & Delivery Form -->
+<form action="https://formcarry.com/s/i3d55lRE4Ny" method="POST" class="mt-8 bg-gray-100 p-6 rounded space-y-4" onsubmit="return confirmFormSubmission()">
+  <h3 class="text-2xl font-semibold mb-4">Confirm Payment & Delivery</h3>
+
+  <p>💳 <strong>M-Pesa Till Number:</strong> 123456</p>
+  <p>🏦 <strong>Bank Account:</strong> 0112223344 (Equity Bank)</p>
+
+  <!-- Customer Name -->
+  <label class="block font-medium" for="name">Full Name:</label>
+  <input id="name" name="name" type="text" class="w-full p-2 border rounded" placeholder="e.g., Jane Doe" required>
+
+  <!-- Customer Phone Number -->
+  <label class="block font-medium" for="phone">Phone Number:</label>
+  <input id="phone" name="phone" type="tel" class="w-full p-2 border rounded" placeholder="e.g., 0712 345 678" required>
+
+  <!-- Delivery Location -->
+  <label class="block font-medium" for="location">Delivery Location:</label>
+  <input id="location" name="location" type="text" class="w-full p-2 border rounded" placeholder="e.g., Roysambu, Nairobi" required>
+
+  <!-- Transaction Code -->
+  <label class="block font-medium" for="transaction">Transaction Code:</label>
+  <input id="transaction" name="transaction" type="text" class="w-full p-2 border rounded" placeholder="e.g., MPESA123ABC" required>
+
+  <!-- Hidden Cart Summary Field -->
+  <input type="hidden" id="cart-summary" name="cart_summary" />
+
+  <!-- Submit -->
+  <button type="submit" class="bg-[var(--accent)] text-white px-6 py-2 rounded hover:bg-opacity-90">
+    Submit Order
+  </button>
+</form>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center p-6 text-sm text-gray-600 mt-12">
+    &copy; 2025 Beads & Feels Kenya – All Rights Reserved.
+  </footer>
+
+  <!-- Cart Logic -->
+  <script>
+    const cartContainer = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cartContainer.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p class='text-gray-500'>Your cart is empty.</p>";
+        cartTotal.textContent = "0";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.qty * item.price;
+        total += itemTotal;
+
+        const div = document.createElement("div");
+        div.className = "p-4 border rounded flex justify-between items-center";
+        div.innerHTML = `
+          <div>
+            <p class="font-semibold">${item.name}</p>
+            <p>Ksh ${item.price} x ${item.qty} = <strong>Ksh ${itemTotal}</strong></p>
+          </div>
+          <button onclick="removeItem(${index})" class="bg-red-600 text-white px-4 py-1 rounded hover:bg-red-700">
+            Remove
+          </button>
+        `;
+        cartContainer.appendChild(div);
+      });
+
+      cartTotal.textContent = total;
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function confirmOrder() {
+      const code = document.getElementById("transaction-code").value.trim();
+      if (!code) {
+        alert("Please enter a transaction code to confirm your payment.");
+        return;
+      }
+
+      alert("Payment confirmed with code: " + code + "\nThank you for your order!");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    }
+
+    loadCart();
+  </script>
+ 
+
+</body>
+</html>

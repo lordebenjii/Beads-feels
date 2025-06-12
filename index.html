@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beads & Feels Kenya</title>
+  <link rel="icon" href="img/logoo.png" type="png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary: #f07218;
+      --accent: #852527;
+      --highlight: #e9a001;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[var(--accent)] text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Beads & Feels Kenya</h1>
+      <nav>
+        <a href="cart.html" class="mx-2 hover:text-[var(--highlight)]">Cart</a>
+        <a href="custom-orders.html" class="mx-2 hover:text-[var(--highlight)]">Custom Orders</a>
+        <a href="contact.html" class="mx-2 hover:text-[var(--highlight)]">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section with Background Image -->
+<section class="relative text-white text-center py-20 px-6">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url(img/banner2.png);"></div>
+
+  <!-- Overlay for darkening -->
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">Wear Your Story</h2>
+    <p class="text-lg mb-6">Explore handcrafted African accessories — from bold bracelets to elegant waistbeads — all made with love in Nairobi.</p>
+    <a href="#categories" class="bg-white text-[var(--accent)] px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
+      Browse Collection
+    </a>
+  </div>
+</section>
+
+  <!-- Category Grid -->
+  <section id="categories" class="max-w-6xl mx-auto p-6">
+    <h3 class="text-3xl font-bold text-[var(--accent)] mb-6 text-center">Shop by Category</h3>
+    <div class="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+      <a href="earrings.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main earrings.jpg" alt="Earrings" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Earrings</p>
+      </a>
+      <a href="necklaces.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main.necklace.jpg" alt="Necklaces" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Necklaces</p>
+      </a>
+      <a href="bracelets.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main.bracelets.jpg" alt="Bracelets" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Bracelets</p>
+      </a>
+      <a href="waistbeads.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main.waistbeads.jpg" alt="Waistbeads" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Waistbeads</p>
+      </a>
+      <a href="anklets.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main.anklets.jpg" alt="Anklets" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Anklets</p>
+      </a>
+      <a href="beaded_keyholders.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/main.keyholder.jpg" alt="Beaded Keyholders" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Beaded Keyholders</p>
+      </a>
+      <!--<a href="accessories.html" class="bg-gray-100 p-4 rounded-lg hover:shadow-lg text-center">
+        <img src="img/accessories.jpg" alt="accessories" class="w-full h-40 object-cover rounded mb-2">
+        <p class="text-lg font-semibold">Accessories</p>
+      </a>-->
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-[var(--primary)] py-12 text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-8 text-center">What Our Customers Say</h2>
+
+    <div class="relative overflow-hidden">
+      <div id="testimonial-carousel" class="flex transition-transform duration-700 ease-in-out">
+        <!-- Testimonial 1 -->
+        <div class="min-w-full flex-shrink-0 bg-white text-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center mx-2">
+          <img src="images/avatar1.jpg" alt="Customer 1" class="w-20 h-20 rounded-full mb-4 object-cover" />
+          <p class="italic mb-4">"Absolutely love the quality and colors of the waistbeads! Excellent customer service too."</p>
+          <div class="flex mb-2">
+            <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          </div>
+          <h3 class="font-semibold">Amina Mwangi</h3>
+          <p class="text-sm text-gray-500">Nairobi</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="min-w-full flex-shrink-0 bg-white text-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center mx-2">
+          <img src="images/avatar2.jpg" alt="Customer 2" class="w-20 h-20 rounded-full mb-4 object-cover" />
+          <p class="italic mb-4">"The beaded keyholders are unique and very durable. Highly recommend Beads & Feels Kenya."</p>
+          <div class="flex mb-2">
+            <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <h3 class="font-semibold">John Otieno</h3>
+          <p class="text-sm text-gray-500">Nairobi</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="min-w-full flex-shrink-0 bg-white text-gray-800 p-6 rounded-lg shadow-lg flex flex-col items-center mx-2">
+          <img src="images/avatar3.jpg" alt="Customer 3" class="w-20 h-20 rounded-full mb-4 object-cover" />
+          <p class="italic mb-4">"Great experience ordering custom earrings. The process was easy and the result was stunning."</p>
+          <div class="flex mb-2">
+            <span class="text-yellow-400">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          </div>
+          <h3 class="font-semibold">Grace Njeri</h3>
+          <p class="text-sm text-gray-500">Nakuru</p>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button id="prevBtn" aria-label="Previous" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-[var(--accent)] bg-opacity-70 hover:bg-opacity-90 text-white rounded-full w-10 h-10 flex items-center justify-center">
+        &#10094;
+      </button>
+      <button id="nextBtn" aria-label="Next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[var(--accent)] bg-opacity-70 hover:bg-opacity-90 text-white rounded-full w-10 h-10 flex items-center justify-center">
+        &#10095;
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const carousel = document.getElementById('testimonial-carousel');
+    const totalItems = carousel.children.length;
+    let currentIndex = 0;
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateCarousel() {
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      updateCarousel();
+      resetAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+      resetAutoSlide();
+    });
+
+    // Auto slide every 4 seconds
+    let autoSlideInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    }, 4000);
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+      }, 4000);
+    }
+  </script>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center p-6 text-sm text-gray-600">
+    <p>&copy; 2025 Beads & Feels Kenya. Designed with love in Nairobi.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bracelets – Beads & Feels Kenya</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary: #f07218;
+      --accent: #852527;
+      --highlight: #e9a001;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[var(--accent)] text-white p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Beads & Feels Kenya</h1>
+      <nav>
+        <a href="index.html" class="mx-2 hover:text-[var(--highlight)]">Home</a>
+        <a href="custom-orders.html" class="mx-2 hover:text-[var(--highlight)]">Custom Orders</a>
+        <a href="contact.html" class="mx-2 hover:text-[var(--highlight)]">Contact</a>
+        <a href="cart.html" class="mx-2 hover:text-[var(--highlight)]">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Category Title -->
+  <section class="text-center py-10">
+    <h2 class="text-4xl font-bold text-[var(--accent)] mb-2">Bracelets</h2>
+    <p class="text-lg text-gray-600">Colorful and unique bracelets for every style.</p>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-6 max-w-6xl mx-auto pb-12" id="product-grid">
+    <!-- Products inserted by JS -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center p-6 text-sm text-gray-600 mt-12">
+    <p>&copy; 2025 Beads & Feels Kenya. All rights reserved.</p>
+    <p>Nairobi, Kenya | beadsandfeels@gmail.com</p>
+  </footer>
+
+  <!-- JS to load products and handle cart -->
+  <script>
+    const products = [
+      { name: "Kenya Beaded Bracelet", price: 600, img: "img/Kenya Beaded Bracelet.jpg" },
+      { name: "Sunrise Multi-Strand Bracelet", price: 750, img: "img/Sunrise Multi-Strand Bracelet.jpg" },
+      { name: "Classic Red Bead Bracelet", price: 500, img: "img/Classic Red Bead Bracelet.jpg" }
+    ];
+
+    const grid = document.getElementById('product-grid');
+
+    products.forEach(p => {
+      const el = document.createElement('div');
+      el.className = "bg-white shadow rounded-lg overflow-hidden";
+      el.innerHTML = `
+        <img src="${p.img}" alt="${p.name}" class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-xl font-semibold text-[var(--accent)] mb-2">${p.name}</h3>
+          <p class="text-lg font-bold mb-2">Ksh ${p.price}</p>
+          <button class="add-to-cart bg-[var(--primary)] text-white px-4 py-2 rounded hover:bg-opacity-90" data-name="${p.name}" data-price="${p.price}">Add to Cart</button>
+        </div>
+      `;
+      grid.appendChild(el);
+    });
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const buttons = document.querySelectorAll('.add-to-cart');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-name');
+        const price = parseInt(btn.getAttribute('data-price'));
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ name, price, qty: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        btn.textContent = "✔ Added!";
+        btn.disabled = true;
+        setTimeout(() => {
+          btn.textContent = "Add to Cart";
+          btn.disabled = false;
+        }, 1500);
+      });
+    });
+  </script>
+
+</body>
+</html>
