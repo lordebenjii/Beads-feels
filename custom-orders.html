@@ -68,7 +68,7 @@
       const message = `Hello, my name is ${name}.\nI'd like to place a custom order:\n${order}\n\nYou can reach me at ${phone} or ${email}`;
       const encodedMsg = encodeURIComponent(message);
 
-      window.open(`https://wa.me/254${phone.replace(/^0/, '')}?text=${encodedMsg}`, '_blank');
+      window.open(`https://wa.me/254112412041?text=${encodedMsg}`, '_blank');
 
       mailtoLink.href = `mailto:beadsandfeels@gmail.com?subject=Custom Order&body=${encodedMsg}`;
     });
